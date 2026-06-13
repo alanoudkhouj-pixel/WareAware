@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WareAware - Premium Light Digital Product Passport</title>
+    
+    <!-- Tailwind CSS for Responsive Layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Modern Clothing and Material Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Premium Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        
+        /* Custom scrollbar for modern presentation panel */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Glassmorphism effects for premium overlays */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        /* Smartphone Frame styling mimicking premium physical devices */
+        .phone-frame {
+            box-shadow: 0px 25px 60px -15px rgba(15, 23, 42, 0.15), 0 0 0 12px #ffffff, 0 0 0 14px #cbd5e1;
+            border-radius: 46px;
+            background: #ffffff;
+        }
+
+        /* High contrast Green to Red sustainability gradient scale */
+        .impact-gradient {
+            background: linear-gradient(to right, #10b981 0%, #f59e0b 50%, #ef4444 100%);
+        }
+
+        /* Smooth UI content transitions */
+        .screen-container {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Custom range slider styling for CPW calculator */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #10b981;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        /* Responsive sidebar visibility settings */
+        @media (max-width: 1023px) {
+            .presentation-sidebar {
+                display: none !important;
+            }
+            .phone-frame {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                border: none !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                height: 100vh !important;
+                aspect-ratio: auto !important;
+            }
+            .phone-main-container {
+                padding-top: 2rem !important;
+            }
+            main {
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden bg-slate-50">
+
+    <div class="min-h-screen flex flex-col lg:flex-row">
+        
+        <!-- Interactive Presentation Sidebar: Explaining Circularity & Pitches -->
+        <aside class="presentation-sidebar w-full lg:w-5/12 xl:w-4/12 p-6 lg:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-100 bg-white z-10 relative overflow-y-auto">
+            <div class="space-y-8">
+                <!-- Brand logo with premium SVG icon representing circular connection -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/10">
+                        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <circle cx="12" cy="11" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
+                            WareAware <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 font-bold border border-emerald-500/20">LIVE DEMO</span>
+                        </h1>
+                        <p class="text-[11px] text-slate-500 tracking-wider font-semibold uppercase">Digital Circular Passport v5.0</p>
+                    </div>
+                </div>
+
+                <!-- Pitch Highlights specifically targeting judges for waste-reduction -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Pitch & Consumer Value</h2>
+                        <span class="text-[9px] bg-emerald-500/10 text-emerald-600 px-2.5 py-0.5 rounded-full border border-emerald-500/20 font-bold">PRACTICAL UX</span>
+                    </div>
+                    
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-4">
+                        <div class="flex gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-extrabold">1</span>
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900">Cost-Per-Wear (CPW) Gamification</h3>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">By visualizing the shrinking CPW, customers understand the literal financial reward of avoiding fast-fashion and holding onto garments longer.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-extrabold">2</span>
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900">Interactive Garment Selector</h3>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Test how the circular recommendations and footprint indicators automatically morph depending on fabric: Denim, Wool, or Recycled Synthetics.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-extrabold">3</span>
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900">Practical Care Translation</h3>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Instead of confusing tiny neck tags, consumers tap direct, intuitive care symbols representing modern machine limits to prevent unintentional shrinking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Guide Steps to navigate the simplified 2-screen prototype -->
+                <div class="space-y-3">
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Simulate Screen Views</h2>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="gotoScreen('sustainability')" id="side-btn-sustainability" class="p-3 text-left rounded-xl bg-emerald-50 border border-emerald-100 transition flex flex-col gap-1 text-slate-700">
+                            <span class="text-[10px] text-emerald-600 font-semibold">PAGE 1</span>
+                            <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                                <i class="fa-solid fa-shirt text-emerald-500"></i> Care & Lifespan
+                            </span>
+                        </button>
+                        <button onclick="gotoScreen('hubs')" id="side-btn-hubs" class="p-3 text-left rounded-xl bg-slate-50 hover:bg-slate-100 transition border border-slate-100 flex flex-col gap-1 text-slate-500">
+                            <span class="text-[10px] text-slate-400 font-semibold">PAGE 2</span>
+                            <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-map-location-dot text-slate-500"></i> Nearest Eco-Hubs
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Developer & Sustainability footer -->
+            <div class="mt-8 pt-4 border-t border-slate-100 text-center lg:text-left">
+                <p class="text-[10px] text-slate-400 font-medium font-semibold">WareAware Product Stewardship Passport — Empowering Circularity © 2026</p>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex items-center justify-center p-4 md:p-8 lg:p-12 relative overflow-hidden bg-slate-100">
+            <!-- Dynamic ambient light background details -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-100/40 rounded-full filter blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-100/40 rounded-full filter blur-[100px] pointer-events-none"></div>
+
+            <!-- Physical phone outer frame container with custom light aesthetic -->
+            <div class="relative w-full max-w-[385px] aspect-[9/19.5] bg-slate-50 phone-frame overflow-hidden border border-slate-200 flex flex-col">
+                
+                <!-- Simulated premium smartphone system bar / Notch status indicator -->
+                <div class="absolute top-0 inset-x-0 h-9 flex items-center justify-between px-6 z-50 text-[11px] font-semibold text-slate-800 bg-transparent pointer-events-none">
+                    <span id="phone-clock font-bold">10:42 AM</span>
+                    <!-- Dynamic Island Simulation -->
+                    <div class="w-28 h-6 bg-slate-900 rounded-full mx-auto absolute left-1/2 -translate-x-1/2 top-1.5 flex items-center justify-end px-3">
+                        <div class="w-2.5 h-2.5 rounded-full bg-slate-800"></div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-signal text-[10px]"></i>
+                        <i class="fa-solid fa-wifi text-[10px]"></i>
+                        <i class="fa-solid fa-battery-full text-xs text-emerald-600"></i>
+                    </div>
+                </div>
+
+                <!-- PHONE CONTAINER SCREEN SLIDES -->
+                <div class="phone-main-container flex-1 flex flex-col pt-9 relative overflow-hidden bg-slate-50">
+                    
+                    <!-- SCREEN 1: SUSTAINABILITY METRICS & LIVE DISPOSAL INSIGHTS -->
+                    <div id="screen-sustainability" class="absolute inset-0 z-20 flex flex-col bg-slate-50 overflow-y-auto pb-20 transition-all duration-300">
+                        
+                        <!-- Top Navigation Header -->
+                        <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex flex-col gap-2 z-30 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1.5">
+                                    <svg class="w-5 h-5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                    <span class="text-[11px] font-black tracking-widest text-slate-800 uppercase">WareAware</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[9px] bg-slate-100 text-slate-500 border border-slate-200 px-1.5 py-0.5 rounded font-bold">Verifiable ID</span>
+                                    <button onclick="sharePassport()" class="w-7 h-7 rounded-full bg-slate-50 hover:bg-slate-100 flex items-center justify-center text-slate-600 border border-slate-200/55 transition">
+                                        <i class="fa-solid fa-share-nodes text-[10px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Active Garment Selector (Highly Practical Switcher) -->
+                            <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+                                <button id="tab-denim" onclick="switchGarment('denim')" class="flex-1 py-1.5 px-2 rounded-lg text-[9px] font-extrabold flex items-center justify-center gap-1 transition bg-white text-slate-900 shadow-sm">
+                                    <i class="fa-solid fa-vest"></i> Denim
+                                </button>
+                                <button id="tab-wool" onclick="switchGarment('wool')" class="flex-1 py-1.5 px-2 rounded-lg text-[9px] font-semibold flex items-center justify-center gap-1 text-slate-500 transition hover:bg-white/50">
+                                    <i class="fa-solid fa-yarn"></i> Sweater
+                                </button>
+                                <button id="tab-active" onclick="switchGarment('active')" class="flex-1 py-1.5 px-2 rounded-lg text-[9px] font-semibold flex items-center justify-center gap-1 text-slate-500 transition hover:bg-white/50">
+                                    <i class="fa-solid fa-socks"></i> Activewear
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Hero Card image block (Swaps dynamically) -->
+                        <div class="p-4 pb-2">
+                            <div class="relative rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm">
+                                <img id="product-img" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=600" alt="Recyclable Denim Jacket" class="w-full h-32 object-cover opacity-90 transition duration-300">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
+                                <div class="absolute bottom-3 left-4 right-4 text-white">
+                                    <span id="product-id" class="text-[8px] font-bold uppercase bg-emerald-500/80 text-white px-2 py-0.5 rounded border border-emerald-400">ID: WA-ECO-882</span>
+                                    <h4 id="product-name" class="text-sm font-extrabold mt-1">Conscious Denim Utility Jacket</h4>
+                                    <p id="product-composition" class="text-[9px] text-slate-200">98% Rain-Fed Organic Cotton, 2% Recycled Elastane</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1. ENVIRONMENTAL IMPACT GRADIENT LEVEL -->
+                        <div class="px-4 py-2">
+                            <div class="p-4 rounded-xl bg-white border border-slate-100 shadow-sm space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-leaf text-emerald-500 text-xs"></i>
+                                        <span class="text-xs font-bold text-slate-800">Environmental Impact Index</span>
+                                    </div>
+                                    <span id="impact-tag" class="text-[9px] text-emerald-700 font-extrabold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">Low Danger</span>
+                                </div>
+                                
+                                <!-- Slider element with slider marker on the safe/green end -->
+                                <div class="relative pt-1.5 pb-1">
+                                    <div class="w-full h-2.5 rounded-full impact-gradient"></div>
+                                    <!-- Indicator Node positioned on the safe Green-Teal threshold -->
+                                    <div id="impact-marker" class="absolute top-0.5 left-[22%] -translate-x-1/2 flex flex-col items-center transition-all duration-300">
+                                        <div class="w-4 h-4 rounded-full bg-white border-[3px] border-emerald-500 shadow-md"></div>
+                                    </div>
+                                    <div class="flex justify-between text-[8px] text-slate-400 font-semibold mt-1.5">
+                                        <span class="text-emerald-600 font-bold">Eco-Safe (Low)</span>
+                                        <span class="text-amber-500 font-bold">Moderate Impact</span>
+                                        <span class="text-red-500 font-bold">Danger (High)</span>
+                                    </div>
+                                </div>
+                                <p id="impact-desc" class="text-[10px] text-slate-500 leading-relaxed">
+                                    <strong>Analysis:</strong> This jacket uses strictly rainwater organic cultivation with no hazardous petrochemicals. Safe agricultural footprint.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2. RAW SUSTAINABILITY FOOTPRINT METRICS -->
+                        <div class="px-4 py-2">
+                            <div class="grid grid-cols-2 gap-3">
+                                <!-- Water Savings Card -->
+                                <div class="p-3.5 rounded-xl bg-white border border-slate-100 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition duration-300">
+                                    <div class="flex justify-between items-start">
+                                        <span class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-droplet"></i></span>
+                                        <span id="water-saved" class="text-[9px] text-teal-600 font-extrabold bg-teal-50 px-1.5 py-0.5 rounded">-72% water saved</span>
+                                    </div>
+                                    <div class="mt-3">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase">Water Footprint</p>
+                                        <p id="water-val" class="text-sm font-extrabold text-slate-800">2,500 Liters</p>
+                                        <div class="w-full bg-slate-100 h-1 rounded-full mt-2 overflow-hidden">
+                                            <div id="water-bar" class="bg-teal-500 h-full rounded-full transition-all duration-300" style="width: 28%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Carbon Footprint Card -->
+                                <div class="p-3.5 rounded-xl bg-white border border-slate-100 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition duration-300">
+                                    <div class="flex justify-between items-start">
+                                        <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-cloud"></i></span>
+                                        <span id="carbon-saved" class="text-[9px] text-emerald-600 font-extrabold bg-emerald-50 px-1.5 py-0.5 rounded">-60% CO₂e saved</span>
+                                    </div>
+                                    <div class="mt-3">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase">Carbon Footprint</p>
+                                        <p id="carbon-val" class="text-sm font-extrabold text-slate-800">10 kg CO₂e</p>
+                                        <div class="w-full bg-slate-100 h-1 rounded-full mt-2 overflow-hidden">
+                                            <div id="carbon-bar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 40%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. DETAILED WASHING & REPAIR SYMBOL GUIDE -->
+                        <div class="px-4 py-2">
+                            <div class="p-4 rounded-xl bg-white border border-slate-100 shadow-sm space-y-3">
+                                <div class="flex justify-between items-center border-b border-slate-100 pb-2">
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-info text-slate-400 text-xs"></i>
+                                        <span class="text-xs font-bold text-slate-800">Smart Textile Care Guide</span>
+                                    </div>
+                                    <span class="text-[8px] uppercase tracking-wider text-emerald-600 font-black">Tap icons to see guidance</span>
+                                </div>
+                                
+                                <div class="grid grid-cols-5 gap-1.5 text-center">
+                                    <!-- Wash -->
+                                    <button onclick="selectCare('wash')" class="p-1.5 rounded-lg border border-slate-100 bg-slate-50 hover:border-emerald-500 hover:bg-emerald-50 transition">
+                                        <span class="block text-xs text-slate-700 font-bold"><i class="fa-solid fa-soap"></i></span>
+                                        <span class="text-[8px] text-slate-500 font-semibold block mt-1">Wash</span>
+                                    </button>
+                                    <!-- Bleach -->
+                                    <button onclick="selectCare('bleach')" class="p-1.5 rounded-lg border border-slate-100 bg-slate-50 hover:border-emerald-500 hover:bg-emerald-50 transition">
+                                        <span class="block text-xs text-slate-700 font-bold"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                                        <span class="text-[8px] text-slate-500 font-semibold block mt-1">Bleach</span>
+                                    </button>
+                                    <!-- Dry -->
+                                    <button onclick="selectCare('dry')" class="p-1.5 rounded-lg border border-slate-100 bg-slate-50 hover:border-emerald-500 hover:bg-emerald-50 transition">
+                                        <span class="block text-xs text-slate-700 font-bold"><i class="fa-solid fa-wind"></i></span>
+                                        <span class="text-[8px] text-slate-500 font-semibold block mt-1">Dry</span>
+                                    </button>
+                                    <!-- Iron -->
+                                    <button onclick="selectCare('iron')" class="p-1.5 rounded-lg border border-slate-100 bg-slate-50 hover:border-emerald-500 hover:bg-emerald-50 transition">
+                                        <span class="block text-xs text-slate-700 font-bold"><i class="fa-solid fa-temperature-half"></i></span>
+                                        <span class="text-[8px] text-slate-500 font-semibold block mt-1">Iron</span>
+                                    </button>
+                                    <!-- Professional Care -->
+                                    <button onclick="selectCare('clean')" class="p-1.5 rounded-lg border border-slate-100 bg-slate-50 hover:border-emerald-500 hover:bg-emerald-50 transition">
+                                        <span class="block text-xs text-slate-700 font-bold"><i class="fa-solid fa-circle-user"></i></span>
+                                        <span class="text-[8px] text-slate-500 font-semibold block mt-1">Clean</span>
+                                    </button>
+                                </div>
+
+                                <!-- Dynamic Care Instruction Bubble -->
+                                <div id="care-explanation" class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                                    <p class="text-[10px] font-bold text-slate-800 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-soap text-emerald-500"></i> Wash Cold (30°C)
+                                    </p>
+                                    <p class="text-[9px] text-slate-500 mt-1">Use delicate machine settings with mild, non-toxic liquid detergent. Never pour directly onto indigo fabric.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. CONSUMER UTILITY: COST-PER-WEAR CALCULATOR -->
+                        <div class="px-4 py-2">
+                            <div class="p-4 rounded-xl bg-white border border-slate-100 shadow-sm space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-calculator text-emerald-500"></i> Your Cost-Per-Wear (CPW)
+                                    </span>
+                                    <span id="cpw-badge" class="text-[9px] text-amber-600 font-extrabold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Needs More Wears</span>
+                                </div>
+                                <div class="bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/50 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-[9px] text-slate-400 font-bold">Estimated Cost per Wear</p>
+                                        <p id="cpw-value" class="text-lg font-black text-slate-800">$24.00 <span class="text-slate-400 font-medium text-xs">/ wear</span></p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[9px] text-slate-400 font-bold">Total Wears Logged</p>
+                                        <p id="wear-count-display" class="text-sm font-extrabold text-slate-700">5 Wears</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-1.5">
+                                    <div class="flex justify-between items-center text-[9px] text-slate-500 font-bold">
+                                        <span>New Garment (1 Wear)</span>
+                                        <span>Circular Target (120+ Wears)</span>
+                                    </div>
+                                    <input type="range" id="wear-slider" min="1" max="150" value="5" oninput="calculateCPW()" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                                </div>
+                                
+                                <p id="cpw-impact" class="text-[9px] text-slate-500 italic">
+                                    <strong>Saving:</strong> Wear this 15 more times to bring CPW below $5.00, keeping this garment out of standard municipal waste streams!
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 5. REWARDING DISPOSAL PATHS (AFTER WEARING OUT) -->
+                        <div class="px-4 py-2">
+                            <div class="p-4 rounded-xl bg-white border border-slate-100 shadow-sm space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <h5 class="text-xs font-extrabold text-slate-800 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-rotate-left text-emerald-500"></i>
+                                        Circular End-of-Life Actions
+                                    </h5>
+                                    <span class="text-[9px] bg-emerald-50 text-emerald-600 font-extrabold px-1.5 py-0.5 rounded border border-emerald-200/50">Earn $15 Reward</span>
+                                </div>
+                                <p class="text-[10px] text-slate-500 leading-relaxed">
+                                    This garment's specific fibers are highly valuable. Once you have fully enjoyed this piece, please do not throw it in a landfill. Instead, access our loop recycling methods:
+                                </p>
+                                
+                                <div class="space-y-2 mt-2">
+                                    <!-- Action 1: Donate -->
+                                    <div class="bg-slate-50/80 p-2.5 rounded-lg border border-slate-100 flex items-start gap-2.5">
+                                        <span class="text-emerald-600 text-xs mt-0.5"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                                        <div>
+                                            <p class="text-[10px] font-bold text-slate-800">1. Clean & Donate Locally</p>
+                                            <p id="disposal-donate-text" class="text-[9px] text-slate-400">If the garment has no rips, donate directly. Extends use by 2.2 years, avoiding 15kg of carbon impact.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Action 2: Fiber Recycle -->
+                                    <div class="bg-slate-50/80 p-2.5 rounded-lg border border-slate-100 flex items-start gap-2.5">
+                                        <span class="text-teal-600 text-xs mt-0.5"><i class="fa-solid fa-recycle"></i></span>
+                                        <div>
+                                            <p class="text-[10px] font-bold text-slate-800">2. Bring Back for Fiber Recycling</p>
+                                            <p id="disposal-recycle-text" class="text-[9px] text-slate-400">Damaged beyond repair? Drop off at our partnered hubs. We dismantle the fibers to create new yarns.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Navigation Trigger to next screen -->
+                        <div class="p-4">
+                            <button onclick="gotoScreen('hubs')" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                                Locate Nearest Sustainability Hubs
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 2: NEAREST SUSTAINABLE SERVICES MAP & DIRECTORY -->
+                    <div id="screen-hubs" class="absolute inset-0 z-10 hidden flex-col bg-slate-50 overflow-y-auto pb-20 transition-all duration-300">
+                        <!-- Navigation Header -->
+                        <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3.5 flex items-center justify-between z-30 shadow-sm">
+                            <span class="text-xs font-extrabold tracking-wider text-slate-800">Nearest Circular Service Hubs</span>
+                            <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-emerald-600">
+                                <i class="fa-solid fa-location-dot text-xs"></i>
+                            </div>
+                        </div>
+
+                        <!-- 1. HIGH RESOLUTION SIMULATED NAVIGATION MAP (LIGHT DESIGN) -->
+                        <div class="p-4">
+                            <div class="relative w-full h-48 rounded-2xl overflow-hidden border border-slate-200 bg-emerald-50 flex items-center justify-center shadow-inner">
+                                <!-- Styled map grids mimicking satellite & GPS roads -->
+                                <svg class="absolute inset-0 w-full h-full text-slate-300/60" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                    <defs>
+                                        <pattern id="light-grid" width="35" height="35" patternUnits="userSpaceOnUse">
+                                            <path d="M 35 0 L 0 0 0 35" fill="none" stroke="currentColor" stroke-width="0.75"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#light-grid)" />
+                                    <!-- Aesthetic roadway path overlays -->
+                                    <path d="M -10 130 Q 140 15 320 190" fill="none" stroke="#e2e8f0" stroke-width="12" />
+                                    <path d="M 120 -20 L 120 230" fill="none" stroke="#e2e8f0" stroke-width="9" />
+                                    <path d="M 230 -20 Q 180 140 380 150" fill="none" stroke="#e2e8f0" stroke-width="8" />
+                                </svg>
+
+                                <!-- Central Anchor: User Current Location Pin -->
+                                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                                    <div class="w-4.5 h-4.5 bg-blue-500 rounded-full border-[3px] border-white flex items-center justify-center shadow-lg relative">
+                                        <div class="absolute -inset-2 bg-blue-400/40 rounded-full animate-ping"></div>
+                                    </div>
+                                    <span class="text-[8px] bg-slate-900 text-white font-extrabold px-1.5 py-0.5 rounded shadow-sm mt-1">You</span>
+                                </div>
+
+                                <!-- Interactive Landmark Hub Pin 1: Atelier -->
+                                <button onclick="highlightHub(1)" id="pin-1" class="absolute left-[15%] top-[18%] flex items-center gap-1 group transition-all duration-300 hover:scale-110">
+                                    <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-md relative">
+                                        <i class="fa-solid fa-scissors text-xs"></i>
+                                    </div>
+                                    <span class="text-[8px] bg-white text-emerald-700 font-extrabold px-1.5 py-0.5 rounded border border-emerald-100 shadow-sm">0.8km</span>
+                                </button>
+
+                                <!-- Interactive Landmark Hub Pin 2: Recycling Bin -->
+                                <button onclick="highlightHub(2)" id="pin-2" class="absolute right-[18%] top-[24%] flex items-center gap-1 group transition-all duration-300 hover:scale-110">
+                                    <div class="w-8 h-8 rounded-full bg-teal-500 text-white flex items-center justify-center shadow-md relative">
+                                        <i class="fa-solid fa-recycle text-xs"></i>
+                                    </div>
+                                    <span class="text-[8px] bg-white text-teal-700 font-extrabold px-1.5 py-0.5 rounded border border-teal-100 shadow-sm">1.2km</span>
+                                </button>
+
+                                <!-- Interactive Landmark Hub Pin 3: Donation Station -->
+                                <button onclick="highlightHub(3)" id="pin-3" class="absolute right-[30%] bottom-[12%] flex items-center gap-1 group transition-all duration-300 hover:scale-110">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center shadow-md relative">
+                                        <i class="fa-solid fa-hand-holding-heart text-xs"></i>
+                                    </div>
+                                    <span class="text-[8px] bg-white text-indigo-700 font-extrabold px-1.5 py-0.5 rounded border border-indigo-100 shadow-sm">2.1km</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. LOCAL CIRCULAR SERVICE HUB DIRECTORY -->
+                        <div class="px-4 space-y-3">
+                            <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400">Available Neighborhood Locations</h5>
+
+                            <!-- Hub 1: Mending Repair -->
+                            <div id="hub-card-1" onclick="highlightHub(1)" class="p-3.5 rounded-xl bg-white border border-slate-100 hover:border-emerald-500/20 transition-all duration-300 flex items-start gap-3 cursor-pointer shadow-sm">
+                                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-sm">
+                                    <i class="fa-solid fa-scissors"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h6 class="text-xs font-extrabold text-slate-800 truncate">WareAware Repair Atelier</h6>
+                                        <span class="text-[10px] text-emerald-600 font-extrabold shrink-0">0.8 km</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Complimentary darning, stitch reinforcement, and upcycling services.</p>
+                                    <div class="flex items-center justify-between mt-3">
+                                        <span class="text-[8px] bg-emerald-50 text-emerald-600 px-2.5 py-0.5 rounded-full border border-emerald-100 font-bold">Repair & Reuse</span>
+                                        <button onclick="event.stopPropagation(); simulateDirections('WareAware Repair Atelier')" class="text-[9px] bg-slate-900 hover:bg-slate-800 text-white font-extrabold px-3 py-1 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                            <i class="fa-solid fa-compass"></i> Directions
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hub 2: Fiber Recycle Center -->
+                            <div id="hub-card-2" onclick="highlightHub(2)" class="p-3.5 rounded-xl bg-white border border-slate-100 hover:border-teal-500/20 transition-all duration-300 flex items-start gap-3 cursor-pointer shadow-sm">
+                                <div class="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 font-bold text-sm">
+                                    <i class="fa-solid fa-recycle"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h6 class="text-xs font-extrabold text-slate-800 truncate">Metropolitan Fiber Recycle</h6>
+                                        <span class="text-[10px] text-teal-600 font-extrabold shrink-0">1.2 km</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Automated sorting bins optimized to shred and repolymerize cotton fibers.</p>
+                                    <div class="flex items-center justify-between mt-3">
+                                        <span class="text-[8px] bg-teal-50 text-teal-600 px-2.5 py-0.5 rounded-full border border-teal-100 font-bold">Material Rescue</span>
+                                        <button onclick="event.stopPropagation(); simulateDirections('Metropolitan Fiber Recycle')" class="text-[9px] bg-slate-900 hover:bg-slate-800 text-white font-extrabold px-3 py-1 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                            <i class="fa-solid fa-compass"></i> Directions
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hub 3: Donation Point -->
+                            <div id="hub-card-3" onclick="highlightHub(3)" class="p-3.5 rounded-xl bg-white border border-slate-100 hover:border-indigo-500/20 transition-all duration-300 flex items-start gap-3 cursor-pointer shadow-sm">
+                                <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 font-bold text-sm">
+                                    <i class="fa-solid fa-hand-holding-heart"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h6 class="text-xs font-extrabold text-slate-800 truncate">Hope Wear Donation Box</h6>
+                                        <span class="text-[10px] text-indigo-600 font-extrabold shrink-0">2.1 km</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Direct redistributor of pristine apparel to registered community aid agencies.</p>
+                                    <div class="flex items-center justify-between mt-3">
+                                        <span class="text-[8px] bg-indigo-50 text-indigo-600 px-2.5 py-0.5 rounded-full border border-indigo-100 font-bold">Social Donation</span>
+                                        <button onclick="event.stopPropagation(); simulateDirections('Hope Wear Donation Box')" class="text-[9px] bg-slate-900 hover:bg-slate-800 text-white font-extrabold px-3 py-1 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                            <i class="fa-solid fa-compass"></i> Directions
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- PERSISTENT PHONE BOTTOM NAVIGATION (SIMULATED DUAL TABS) -->
+                <nav id="phone-nav" class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-100 py-3 px-8 z-40 flex justify-around text-center shadow-lg">
+                    <button onclick="gotoScreen('sustainability')" id="nav-btn-sustainability" class="flex flex-col items-center gap-1 text-emerald-600 transition-all">
+                        <i class="fa-solid fa-shirt text-sm"></i>
+                        <span class="text-[9px] font-extrabold">Care & Lifespan</span>
+                    </button>
+                    <button onclick="gotoScreen('hubs')" id="nav-btn-hubs" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-all">
+                        <i class="fa-solid fa-map-location-dot text-sm"></i>
+                        <span class="text-[9px] font-semibold">Nearby Hubs</span>
+                    </button>
+                </nav>
+
+                <!-- Phone Home Indicator Bar simulator -->
+                <div class="absolute bottom-1.5 inset-x-0 h-1 flex justify-center z-50 pointer-events-none">
+                    <div class="w-32 h-1 bg-slate-300 rounded-full"></div>
+                </div>
+
+                <!-- Custom elegant iOS-Style Notification Toast -->
+                <div id="toast-notif" class="absolute top-12 left-4 right-4 z-[99] glass-panel rounded-2xl p-3.5 border border-emerald-500/10 flex items-start gap-3 shadow-xl transition-all duration-300 opacity-0 translate-y-[-20px] pointer-events-none">
+                    <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <h4 class="text-xs font-bold text-slate-900" id="toast-title">Notification</h4>
+                        <p class="text-[10px] text-slate-500 mt-0.5 leading-relaxed" id="toast-desc">Details...</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Active Garment State Database for Practical Simulation
+        const garments = {
+            denim: {
+                id: "WA-DENIM-882",
+                name: "Conscious Denim Utility Jacket",
+                composition: "98% Organic Cotton, 2% Recycled Elastane",
+                image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=600",
+                impact: "Low Danger",
+                impactPos: "22%",
+                impactDesc: "<strong>Analysis:</strong> This jacket uses strictly rainwater organic cultivation with no hazardous petrochemicals. Safe agricultural footprint.",
+                waterSaved: "-72% water saved",
+                waterVal: "2,500 Liters",
+                waterWidth: "28%",
+                carbonSaved: "-60% CO₂e saved",
+                carbonVal: "10 kg CO₂e",
+                carbonWidth: "40%",
+                basePrice: 120,
+                care: {
+                    wash: { icon: "fa-soap", title: "Wash Cold (30°C)", desc: "Use delicate machine settings with mild, non-toxic liquid detergent. Never pour directly onto indigo fabric." },
+                    bleach: { icon: "fa-triangle-exclamation", title: "Do Not Bleach", desc: "Chlorine based chemicals will strip natural dye indigo tones. Use enzyme-free oxygen bleach alternatives." },
+                    dry: { icon: "fa-wind", title: "Line Dry Only", desc: "Hang dry inside out in shaded areas. Avoid dryer heat which degrades elastane stretch and shrinks organic cotton." },
+                    iron: { icon: "fa-temperature-half", title: "Medium Heat Iron", desc: "Iron inside-out on medium heat (max 150°C) with light steam if needed to preserve fabric fibers." },
+                    clean: { icon: "fa-circle-user", title: "No Professional Dryclean", desc: "Highly recyclable denim does not require harsh dry cleaning solvents. Localized stain brushing is recommended." }
+                },
+                donateText: "If the garment has no structural rips, donate directly. Extends use by 2.2 years, avoiding 15kg of carbon impact.",
+                recycleText: "Damaged beyond repair? Drop off at our partnered hubs. We dismantle the fibers to create new yarns."
+            },
+            wool: {
+                id: "WA-WOOL-419",
+                name: "Circular Merinos Knit Sweater",
+                composition: "100% Regenerative Merino Wool (Single Fiber)",
+                image: "https://images.unsplash.com/photo-1574164904299-3a102b110380?auto=format&fit=crop&q=80&w=600",
+                impact: "Minimal Footprint",
+                impactPos: "12%",
+                impactDesc: "<strong>Analysis:</strong> Produced using carbon-positive holistic grazing methods. Zero microplastics, naturally biodegradable inside 9 months.",
+                waterSaved: "-88% water saved",
+                waterVal: "850 Liters",
+                waterWidth: "12%",
+                carbonSaved: "-94% CO₂e saved",
+                carbonVal: "3.5 kg CO₂e",
+                carbonWidth: "10%",
+                basePrice: 160,
+                care: {
+                    wash: { icon: "fa-soap", title: "Handwash Cold", desc: "Gently handwash in lukewarm water using special wool shampoo. Do not agitate wool fibers to prevent felting." },
+                    bleach: { icon: "fa-triangle-exclamation", title: "Strictly Do Not Bleach", desc: "Bleach entirely dissolves animal-hair keratin fibers inside minutes. Avoid completely." },
+                    dry: { icon: "fa-wind", title: "Dry Flat in Shade", desc: "Never hang heavy wet sweaters as they lose structural integrity. Lay flat over dry towels in shade." },
+                    iron: { icon: "fa-temperature-half", title: "Steam Press Only", desc: "Avoid flat direct hot plates. Hold hot steam iron 2cm above the fabric to lift compacted wool fibers." },
+                    clean: { icon: "fa-circle-user", title: "Hydrocarbon Dry Clean", desc: "Only dry clean when absolutely necessary. Request carbon-neutral non-perc solutions to save fibers." }
+                },
+                donateText: "Single-origin merino has high resale value. Hand in at partnered ateliers for wool rejuvenation or local charity donation.",
+                recycleText: "100% pure wool is completely compostable in soil. Alternatively, we tear it back into high-quality carded circular wool."
+            },
+            active: {
+                id: "WA-ACTIVE-005",
+                name: "Ocean-Bound Recycled Leggings",
+                composition: "82% Econyl Recycled Nylon, 18% Elastane",
+                image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&q=80&w=600",
+                impact: "Synthetic Control",
+                impactPos: "42%",
+                impactDesc: "<strong>Analysis:</strong> Constructed using post-consumer ocean nets. Low raw carbon footprint, but requires careful washing to prevent microplastic emission.",
+                waterSaved: "-45% water saved",
+                waterVal: "1,800 Liters",
+                waterWidth: "20%",
+                carbonSaved: "-52% CO₂e saved",
+                carbonVal: "18 kg CO₂e",
+                carbonWidth: "62%",
+                basePrice: 90,
+                care: {
+                    wash: { icon: "fa-soap", title: "Guppyfriend Bag Wash", desc: "Wash inside microplastic filtration laundry bags at 30°C to capture synthetic ocean-shed fibers." },
+                    bleach: { icon: "fa-triangle-exclamation", title: "No Bleach or Softener", desc: "Fabric softeners coat nylon pores, permanently destroying the technical sweat-wicking properties." },
+                    dry: { icon: "fa-wind", title: "Fast Air Drying", desc: "Synthetic blends dry exceptionally fast naturally. Avoid energy-hungry mechanical dryer heat." },
+                    iron: { icon: "fa-temperature-half", title: "Do Not Iron", desc: "Extreme thermal heat melts delicate elastane strands, causing immediate shape deformation." },
+                    clean: { icon: "fa-circle-user", title: "Do Not Dry Clean", desc: "Chemical solvents degrade synthetics stretch. Standard delicate wash cycles are perfectly sufficient." }
+                },
+                donateText: "Technical athletic wear is highly desired in sportswear communities. Clean and hand in to community athletic associations.",
+                recycleText: "Nylon can be endlessly chemical-polymerized. Bring back to partners to regenerate into fresh Econyl fibers."
+            }
+        };
+
+        let currentGarmentKey = 'denim';
+        let currentCareSelected = 'wash';
+
+        // Dynamic Garment Switcher
+        function switchGarment(key) {
+            currentGarmentKey = key;
+            const item = garments[key];
+
+            // Update tab styles
+            ['denim', 'wool', 'active'].forEach(k => {
+                const btn = document.getElementById('tab-' + k);
+                if (k === key) {
+                    btn.className = "flex-1 py-1.5 px-2 rounded-lg text-[9px] font-extrabold flex items-center justify-center gap-1 transition bg-white text-slate-900 shadow-sm";
+                } else {
+                    btn.className = "flex-1 py-1.5 px-2 rounded-lg text-[9px] font-semibold flex items-center justify-center gap-1 text-slate-500 transition hover:bg-white/50";
+                }
+            });
+
+            // Update Image and Main Labels
+            document.getElementById('product-img').src = item.image;
+            document.getElementById('product-id').textContent = `ID: ${item.id}`;
+            document.getElementById('product-name').textContent = item.name;
+            document.getElementById('product-composition').textContent = item.composition;
+
+            // Update Impact Indicators
+            document.getElementById('impact-tag').textContent = item.impact;
+            document.getElementById('impact-marker').style.left = item.impactPos;
+            document.getElementById('impact-desc').innerHTML = item.impactDesc;
+
+            // Update Footprints
+            document.getElementById('water-saved').textContent = item.waterSaved;
+            document.getElementById('water-val').textContent = item.waterVal;
+            document.getElementById('water-bar').style.width = item.waterWidth;
+            
+            document.getElementById('carbon-saved').textContent = item.carbonSaved;
+            document.getElementById('carbon-val').textContent = item.carbonVal;
+            document.getElementById('carbon-bar').style.width = item.carbonWidth;
+
+            // Update Disposal Texts
+            document.getElementById('disposal-donate-text').textContent = item.donateText;
+            document.getElementById('disposal-recycle-text').textContent = item.recycleText;
+
+            // Reset Care Instructions
+            selectCare('wash');
+
+            // Recalculate CPW with current slider value
+            calculateCPW();
+
+            showToast(
+                'Garment Loaded',
+                `Switched to circular passport for: ${item.name}`,
+                'fa-shirt'
+            );
+        }
+
+        // Care Guidance Display Logic
+        function selectCare(type) {
+            currentCareSelected = type;
+            const item = garments[currentGarmentKey];
+            const careData = item.care[type];
+            
+            const explanationDiv = document.getElementById('care-explanation');
+            explanationDiv.innerHTML = `
+                <p class="text-[10px] font-bold text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid ${careData.icon} text-emerald-500"></i> ${careData.title}
+                </p>
+                <p class="text-[9px] text-slate-500 mt-1">${careData.desc}</p>
+            `;
+        }
+
+        // Dynamic Cost-Per-Wear Calculator Logic
+        function calculateCPW() {
+            const slider = document.getElementById('wear-slider');
+            const wears = parseInt(slider.value);
+            const item = garments[currentGarmentKey];
+            
+            // Calculate variables
+            const cpw = item.basePrice / wears;
+            const displayCPW = cpw.toFixed(2);
+            
+            // Render text
+            document.getElementById('wear-count-display').textContent = `${wears} Wears`;
+            document.getElementById('cpw-value').innerHTML = `$${displayCPW} <span class="text-slate-400 font-medium text-xs">/ wear</span>`;
+
+            // Dynamic grading classes & text
+            const badge = document.getElementById('cpw-badge');
+            const impactPara = document.getElementById('cpw-impact');
+
+            if (wears < 10) {
+                badge.className = "text-[9px] text-red-600 font-extrabold bg-red-50 px-2 py-0.5 rounded border border-red-200";
+                badge.textContent = "High Waste Risk";
+                impactPara.innerHTML = `<strong>Saving:</strong> Wear this garment at least 15 more times to pull the CPW down to a more sustainable level. Avoid discarding garments early!`;
+            } else if (wears >= 10 && wears < 50) {
+                badge.className = "text-[9px] text-amber-600 font-extrabold bg-amber-50 px-2 py-0.5 rounded border border-amber-200";
+                badge.textContent = "Progressing Circular";
+                const wearsNeeded = 50 - wears;
+                impactPara.innerHTML = `<strong>Progressing:</strong> You're getting good value! ${wearsNeeded} more wears to enter the Eco-Champion Zone.`;
+            } else {
+                badge.className = "text-[9px] text-emerald-600 font-extrabold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                badge.textContent = "Circular Champion";
+                impactPara.innerHTML = `<strong>Outstanding!</strong> You have prevented ${((wears * 0.15).toFixed(1))}kg of industrial landfill waste by extending this garment's direct lifecycle!`;
+            }
+        }
+
+        // Active Screen Router
+        function gotoScreen(screenId) {
+            // Hide all screen contents
+            document.getElementById('screen-sustainability').style.display = 'none';
+            document.getElementById('screen-hubs').style.display = 'none';
+
+            // Show current screen
+            const activeScreen = document.getElementById('screen-' + screenId);
+            activeScreen.style.display = 'flex';
+
+            // Update bottom navigation active indicators
+            updateNavIcons(screenId);
+
+            // Update external presentation step button styles to follow prototype path
+            updatePresentationButtons(screenId);
+        }
+
+        // Bottom nav styling update
+        function updateNavIcons(activeScreen) {
+            const btns = ['sustainability', 'hubs'];
+            btns.forEach(btn => {
+                const el = document.getElementById('nav-btn-' + btn);
+                if (activeScreen === btn) {
+                    el.className = "flex flex-col items-center gap-1 text-emerald-600 font-extrabold transition-all";
+                } else {
+                    el.className = "flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 font-semibold transition-all";
+                }
+            });
+        }
+
+        // Keep external control sidebar in sync with active simulated state
+        function updatePresentationButtons(activeScreen) {
+            const btns = ['sustainability', 'hubs'];
+            btns.forEach(btn => {
+                const el = document.getElementById('side-btn-' + btn);
+                if (activeScreen === btn) {
+                    el.className = "p-3 text-left rounded-xl bg-emerald-50 border border-emerald-100 transition flex flex-col gap-1 text-slate-700";
+                    el.querySelector('span:nth-child(2)').className = "text-xs font-bold text-slate-900 flex items-center gap-1.5";
+                } else {
+                    el.className = "p-3 text-left rounded-xl bg-slate-50 hover:bg-slate-100 transition border border-slate-100 flex flex-col gap-1 text-slate-500";
+                    el.querySelector('span:nth-child(2)').className = "text-xs font-bold text-slate-700 flex items-center gap-1.5";
+                }
+            });
+        }
+
+        // Highlight Selected Map Center & Scroll item into View
+        function highlightHub(hubId) {
+            // Reset state for all items
+            [1, 2, 3].forEach(id => {
+                const card = document.getElementById('hub-card-' + id);
+                card.className = "p-3.5 rounded-xl bg-white border border-slate-100 hover:border-emerald-500/20 transition-all duration-300 flex items-start gap-3 cursor-pointer shadow-sm";
+                
+                const pin = document.getElementById('pin-' + id);
+                pin.classList.remove('scale-125');
+                pin.querySelector('div').className = "w-8 h-8 rounded-full bg-" + (id === 1 ? 'emerald' : id === 2 ? 'teal' : 'indigo') + "-500 text-white flex items-center justify-center shadow-md relative";
+            });
+
+            // Highlight selected map card list item
+            const activeCard = document.getElementById('hub-card-' + hubId);
+            activeCard.className = "p-3.5 rounded-xl bg-white border-2 border-emerald-500 hover:border-emerald-600 transition-all duration-300 flex items-start gap-3 cursor-pointer shadow-md";
+            activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Highlight & scale map pin representation
+            const activePin = document.getElementById('pin-' + hubId);
+            activePin.classList.add('scale-125');
+            activePin.querySelector('div').className = "w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg relative";
+        }
+
+        // Simulate GPS Directions Dispatch
+        function simulateDirections(serviceName) {
+            showToast(
+                'Route Calculated',
+                `Launching navigation directions to ${serviceName}. It is just minutes away from you!`,
+                'fa-compass'
+            );
+        }
+
+        // Simulate Product Share
+        function sharePassport() {
+            showToast(
+                'Passport Link Shared',
+                'Secure URL copied to device clipboard. You can now transfer this historical asset verifying garment care.',
+                'fa-share-nodes'
+            );
+        }
+
+        // iOS Toast Dispatch System
+        function showToast(title, desc, iconName) {
+            const toast = document.getElementById('toast-notif');
+            toast.querySelector('#toast-title').textContent = title;
+            toast.querySelector('#toast-desc').textContent = desc;
+            
+            const iconEl = toast.querySelector('i');
+            iconEl.className = `fa-solid ${iconName}`;
+
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+            toast.style.pointerEvents = 'auto';
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-20px)';
+                toast.style.pointerEvents = 'none';
+            }, 3800);
+        }
+
+        // Keep system clock in sync
+        function updateClock() {
+            const clock = document.getElementById('phone-clock');
+            if (clock) {
+                const now = new Date();
+                let hours = now.getHours();
+                let ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12; 
+                let minutes = now.getMinutes().toString().padStart(2, '0');
+                clock.textContent = `${hours}:${minutes} ${ampm}`;
+            }
+        }
+
+        // Initialize state on render
+        window.onload = function() {
+            updateClock();
+            setInterval(updateClock, 30000);
+            
+            // Set first view (Sustainability Passport Details) active
+            gotoScreen('sustainability');
+            // Trigger first CPW calc
+            calculateCPW();
+        }
+    </script>
+</body>
+</html>
